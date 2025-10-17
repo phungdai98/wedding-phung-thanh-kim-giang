@@ -424,9 +424,11 @@ body {
     border-radius: 15px;
     cursor: pointer;
     height: 300px;
-    opacity: 0;
-    transform: scale(0.8);
-    transition: all 0.8s ease;
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.3s ease;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .gallery-item.animate-in {
@@ -443,11 +445,16 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: transform 0.3s ease;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    transform: translateZ(0);
+    will-change: transform;
 }
 
 .gallery-item:hover img {
-    transform: scale(1.15);
+    transform: scale(1.02) translateZ(0);
 }
 
 .gallery-overlay {
@@ -456,12 +463,12 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(212, 165, 116, 0.9);
+    background: rgba(212, 165, 116, 0.85);
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.3s ease;
 }
 
 .gallery-item:hover .gallery-overlay {
